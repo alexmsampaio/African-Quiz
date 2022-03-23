@@ -244,7 +244,7 @@ question_number = 1
 score = 0
 
 layout = [[sg.Text('Welcome to the Africa Quiz!\nThis is a quiz with 55 questions'), sg.Text('\t   Score: '), sg.Text('0', key='score')],
-          [sg.Image('africa.png')],
+          [sg.Image('africa.png')], # this is where i put the image
           [sg.Text('Question #:', key='numberLabel'), sg.Text(question_number, key='QuestionNumber'), sg.Text(key='Result')],
           [sg.Text(quiz[1]['question'], key='Question')],
           [sg.Input(key='input')],

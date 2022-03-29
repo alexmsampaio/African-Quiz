@@ -240,13 +240,13 @@ quiz = {
 #     input("Press enter to start the challenge! ")
 #     return True
 
-sg.theme('BlueMono')
-question_number = 1
-score = 0
+sg.theme('BlueMono')#setting the theme of my window to a specific color
+question_number = 1#starting at question #1
+score = 0#setting the initial score to zero
 
 layout = [[sg.Text('Welcome to the Africa Quiz!\nThis is a quiz with 55 questions'), sg.Text('\t   Score: '), sg.Text('0', key='score')],
-          [sg.Image('africa.png')], # this is where i put the image
-          [sg.Text('Question #:', key='numberLabel'), sg.Text(question_number, key='QuestionNumber'), sg.Text(key='Result')],
+          [sg.Image('africa.png')], #displaying the image of the african continent on my window
+          [sg.Text('Question #:', key='numberLabel'), sg.Text(question_number, key='QuestionNumber'), sg.Text(key='Result')],#setting up the question so that the text in the window changes long with the questions 
           [sg.Text(quiz[1]['question'], key='Question')],
           [sg.Input(key='input')],
           [sg.Button('Submit'), sg.Button('Skip')],

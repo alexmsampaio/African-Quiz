@@ -234,12 +234,6 @@ quiz = {
 #             print(key + ':', ques_answer[key])
 
 
-# def introduction_message():
-#     print("Welcome to this geography quiz! \nAre you ready to test your knowledge about Africa?")
-#     print("There are a total of 55 questions, you can skip a question anytime by typing 'skip'")
-#     input("Press enter to start the challenge! ")
-#     return True
-
 sg.theme('BlueMono')#setting the theme of my window to a specific color
 question_number = 1#starting at question #1
 score = 0#setting the initial score to zero
@@ -252,7 +246,7 @@ layout = [[sg.Text('Welcome to the Africa Quiz!\nThis is a quiz with 55 question
           [sg.Button('Submit'), sg.Button('Skip')],
           ]
 
-window = sg.Window('Africa Quiz', layout)
+window = sg.Window('Africa Quiz', layout) #calling the 
 
 
 def next():
@@ -267,18 +261,18 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
         break
-    if event == 'Skip':
+    elif event == 'Skip':
         next()
-    if event == 'Submit':
+    elif event == 'Submit' and values[0]:
         window['input'].update('')
         if question_number < 54:
             if quiz[question_number]['answer'].lower() == values['input'].lower():
-                #window['Result'].update('\tCorrect answer! +1 points')
+                window['Result'].update('\tCorrect answer! +1 points')
                 score += 1
                 next()
             else:
-                #window['Result'].update('\tWrong answer')
-                next()
+                sg.Popup('Please fill in the answer box in order to submit') # prints a popup if there are missing field
+                
         elif question_number == 54:
             if quiz[question_number]['answer'].lower() == values['input'].lower():
                 score += 1
@@ -310,3 +304,5 @@ window.close()
 # print(f"Your final score is {score}!\n\n")
 #
 #
+
+
